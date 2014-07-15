@@ -9,6 +9,7 @@ wrapper of module fail2ban with some customization for IspConfig2 environment
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with [Modulename]](#setup)
  * [Setup requirements](#setup-requirements)
+4. [Usage - Configuration options and additional functionality](#usage)
 
 ##Overview
 this module is a wrapper of puppet-fail2ban module. It configure fail2ban for a IspConfig2 environment
@@ -31,6 +32,17 @@ If you want to add IPs or network in whitelist, or another email address:
     }
 
 ###Setup Requirements
+
+ * softecspa/puppet-fail2ban module
+
 By default module uses this two global variables to set default whitelist and mailto:
+
  * $::subnet\_softec
  * $::notifyemail
+
+##Usage
+Actually only apache2 and ssh jails are managed by this module. By default both jails are enabled. If you want to disable one or more jails:
+
+    class {'ispconfig_fail2ban':
+      apache2 => false,
+    }
