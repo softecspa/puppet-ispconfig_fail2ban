@@ -6,9 +6,9 @@ class ispconfig_fail2ban::params {
   $maxretry           = '3'
   $backend            = 'polling'
 
-  $softec_whitelist   = split($::subnet_softec,' ')
+  $softec_whitelist   = $::subnet_softec_array
   $private_whitelist  = [ '127.0.0.0/8', '172.16.33.0/24', '10.0.0.0/8', '77.238.6.0/23' ]
-  $default_whitelist  = [ $private_whitelist , $softec_whitelist ]
+  $default_whitelist  = concat( $private_whitelist , $softec_whitelist )
 
   $default_mailto     = [ $::notifyemail ]
 

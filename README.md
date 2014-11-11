@@ -37,7 +37,7 @@ If you want to add IPs or network in whitelist, or another email address:
 
 By default module uses this two global variables to set default whitelist and mailto:
 
- * $::subnet\_softec
+ * $::subnet\_softec\_array
  * $::notifyemail
 
 ##Usage
